@@ -203,10 +203,10 @@ function ballBrickColl(){
 
 function paddleMove(){
   // paddle
-  var paddleTopEdgeY = canvas.height - PADDLE_DIST_FROM_EDGE;
-  var paddleBottomEdgeY = paddleTopEdgeY + PADDLE_THICKNESS;
+  var paddleTopEdgeY = canvas.height-PADDLE_DIST_FROM_EDGE;
+  var paddleBottomEdgeY = paddleTopEdgeY+PADDLE_THICKNESS;
   var paddleLeftEdgeX = paddleX;
-  var paddleRightEdgeX = paddleX + PADDLE_WIDTH;
+  var paddleRightEdgeX = paddleX+PADDLE_WIDTH;
   if(ballY > paddleTopEdgeY && // top of paddle
       ballY < paddleBottomEdgeY && // bottom of paddle
       ballX > paddleLeftEdgeX && // left half of paddle
