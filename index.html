@@ -64,6 +64,10 @@ const PADDLE_THICKNESS = 15;
 const PADDLE_WIDTH = 100;
 const PADDLE_DIST_FROM_EDGE = 60;
 
+// Secondary Paddle (Top)
+const SECONDARY_PADDLE_WIDTH = 200;
+const SECONDARY_PADDLE_THICKNESS = 15;
+
 // Mouse
 var mouseX = 0;
 var mouseY = 0;
@@ -189,7 +193,7 @@ function ballBrickColl(){
 
 function paddleMove(){
   // paddle
-  var paddleTopEdgeY = 0; // Start from the top edge
+  var paddleTopEdgeY = canvas.height - PADDLE_DIST_FROM_EDGE;
   var paddleBottomEdgeY = paddleTopEdgeY + PADDLE_THICKNESS;
   var paddleLeftEdgeX = paddleX;
   var paddleRightEdgeX = paddleX + PADDLE_WIDTH;
@@ -254,9 +258,9 @@ function playArea(){
   colorRect(0,0,canvas.width, canvas.height, 'white');
   // ball
   colorCircle();
-  // paddle
-  colorRect(paddleX, 0, PADDLE_WIDTH, PADDLE_THICKNESS, 'black');
-
+  // paddles
+  colorRect(paddleX, 0, PADDLE_WIDTH, PADDLE_THICKNESS, 'black'); // Main paddle
+  colorRect(0, 0, canvas.width, SECONDARY_PADDLE_THICKNESS, 'black'); // Secondary paddle (Top)
   drawbricks();
 }
 
