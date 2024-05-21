@@ -94,23 +94,28 @@ function drawPaddle() {
 }
 
 function collisionDetection() {
+    var totalBricks = brickRowCount * brickColumnCount;
+    var remainingBricks = 0;
     for (var c = 0; c < brickColumnCount; c++) {
         for (var r = 0; r < brickRowCount; r++) {
             var b = bricks[c][r];
             if (b.status == 1) {
+                remainingBricks++;
                 if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
                     dy = -dy;
                     b.status = 0;
                     score++;
-                    if (score == brickRowCount * brickColumnCount) {
-                        alert("WON THE GAME");
-                        document.location.reload();
-                    }
                 }
             }
         }
     }
     
+    // Check if all bricks are broken
+    if (remainingBricks === 0) {
+        alert("WON THE GAME");
+        document.location.reload();
+    }
+
     // Check if ball reaches the bottom edge
     if (y + dy > canvas.height - ballRadius) {
         lives--;
