@@ -71,7 +71,7 @@ const PADDLE_WIDTH = 100;
 const PADDLE_DIST_FROM_EDGE = 60;
 
 // Secondary Paddle (Top)
-const SECONDARY_PADDLE_WIDTH = 200;
+const SECONDARY_PADDLE_WIDTH = 800;
 const SECONDARY_PADDLE_THICKNESS = 15;
 
 // Mouse
@@ -194,11 +194,7 @@ function ballBrickColl(){
 
     }
   }
-  if (brickCount === 0) {
-    alert("You won the game!");
-    ballRest();
-    brickReset();
-  }
+  // colorText(ballBrickCol+","+ballBrickRow+": "+brickIndexUnderBall, mouseX, mouseY, 'white');
 }
 
 function paddleMove(){
